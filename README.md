@@ -2,7 +2,7 @@
 Первый релиз языка TELL!
 ой... другие 2 я забыл....
 3. Запускай программы: `./tell.exe program.tell`
-
+Join our official community on Reddit: r/tell_lang
 Пример кода:
 ```tell (это вот мой язык 🤣)
 PRINT "Hello, World!"
