@@ -1,0 +1,62 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "TELL",
+    "patterns": [
+        { "include": "#comments" },
+        { "include": "#strings" },
+        { "include": "#numbers" },
+        { "include": "#labels" },
+        { "include": "#keywords" },
+        { "include": "#builtins" },
+        { "include": "#operators" }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                { "name": "comment.line.semicolon.tell", "match": ";.*$" },
+                { "name": "comment.line.slash.tell", "match": "//.*$" },
+                { "name": "comment.line.hash.tell", "match": "#[^0-9].*$" }
+            ]
+        },
+        "strings": {
+            "patterns": [
+                { "name": "string.quoted.double.tell", "begin": "\"", "end": "\"", "patterns": [{ "name": "constant.character.escape.tell", "match": "\\\\." }] }
+            ]
+        },
+        "numbers": {
+            "patterns": [
+                { "name": "constant.numeric.tell", "match": "\\b[0-9]+\\b" }
+            ]
+        },
+        "labels": {
+            "patterns": [
+                { "name": "entity.name.label.tell", "match": "\\bLABEL\\s+([a-zA-Z_]\\w*)" },
+                { "name": "entity.name.label.tell", "match": "\\bdow\\s+\\(([a-zA-Z_]\\w*)\\)" },
+                { "name": "entity.name.function.hol.tell", "match": "\\bhol_[a-zA-Z_]\\w*" },
+                { "name": "keyword.control.holjmp.tell", "match": "\\bHOL_JMP\\b" }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                { "name": "keyword.control.tell", "match": "\\b(WHILE|IF|ELSE|END|TRY|CATCH|FINALLY|THROW|FOREACH|IN|SUB|THREAD|IMPORT|STOP|GOTO|JMP|JHP|CND|KEY|SLEEP)\\b" },
+                { "name": "storage.type.tell", "match": "\\b(SET|ADD|GET|LEN|POP|CLEAR|PRINT)\\b" }
+            ]
+        },
+        "builtins": {
+            "patterns": [
+                { "name": "support.function.tell", "match": "\\b(CONCAT|SUBSTR|FIND|REPLACE|TO_STR|TO_NUM|UPPER|LOWER|TRIM|SPLIT|JOIN)\\b" },
+                { "name": "support.function.math.tell", "match": "\\b(SQ|COUT|IO|BOOL|TRO|FOT|GH|JO|POI|IU|LOU|ASD|IOL|BOlN)\\b" },
+                { "name": "support.function.sub.tell", "match": "\\b(KROS|OTG|BABL|HEXAGRAM|HEX)\\b" },
+                { "name": "constant.language.tape.tell", "match": "\\b[GWM C B Z S]\\s" },
+                { "name": "variable.language.register.tell", "match": "\\b[A-D]\\b" }
+            ]
+        },
+        "operators": {
+            "patterns": [
+                { "name": "keyword.operator.tell", "match": "(==|!=|<=|>=|<<|>>|&&|\\|\\||\\+|-|\\*|/|%|&|\\||\\^|=|<|>)" },
+                { "name": "punctuation.section.block.tell", "match": "[:]" }
+            ]
+        }
+    },
+    "scopeName": "source.tell"
+}

@@ -1,0 +1,9 @@
+SET A 5
+HOL_JMP:
+    1_ (5): (START)
+hol_START
+WHILE A > 0:
+    SET A A - 1
+    PRINT A
+END
+PRINT "KAAAK!? RABOTAET!!!"
